@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Quote
+{% endblock %}
+
+{% block main %}
+
+
+
+
+    <div class="container-xxl py-6">
+        <div class="container">
+            <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
+                
+                <p>Thank you for suggesting {{ name }}! Your generosity is making a positive impact on the world.</p>
+            </div>
+            <div class="row g-4 justify-content-center">
+                <div class="col-md-8 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="courses-item d-flex flex-column bg-light overflow-hidden h-100">
+                        <div class="text-center p-4 pt-0">
+                            <div class="d-inline-block bg-primary text-white fs-5 py-1 px-4 mb-4"><i class="fas fa-users"></i></div>
+                            <h6 class="text-primary text-uppercase mb-2">Latest Added Charity</h6>
+                            <h1 class="display-6 mb-4">{{ name }}</h1>
+                            <p>{{description}}</p>
+                            <ol class="breadcrumb justify-content-center mb-0">
+                                <li class="breadcrumb-item small"><i class="fas fa-globe-africa text-primary me-2"></i>{{website}}</li>
+                                <li class="breadcrumb-item small"><i class="fas fa-envelope text-primary me-2"></i>{{contact_email}}</li>
+                                <li class="breadcrumb-item small"><i class="fa fa-signal text-primary me-2"></i>{{share_price}} EGP</li>
+                            </ol>
+                        </div>
+                        <div class="position-relative mt-auto">
+                            <img class="img-fluid" src="../static/img/charityDetails.jpg" alt="">
+                            <div class="courses-overlay">
+                                <a class="btn btn-outline-primary border-2" href="/donate">Donate</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+{% endblock %}

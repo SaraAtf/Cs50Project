@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Donate
+{% endblock %}
+
+{% block main %}
+    <div class="container-xxl py-6">
+        <div class="container">
+            <div class="row g-5">
+                
+                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <h4 class="text-primary text-uppercase mb-2">Thank You</h4>
+                    <h1 class="display-6 mb-4">for creating positive change together!</h1>
+                    <form action="/donate" method="post">
+                        <div class="row g-3">
+                            <div class="col-12">
+                                <div class="form-floating">
+                                    <select id="charity" name="charity" class="form-select">
+                                        <option value="" selected disabled>Choose Charity</option>
+                                        {% for charity in charities %}
+                                            <option value="{{charity["id"]}}">{{charity["name"]}} ({{charity["share_price"]}} EGP)</option>
+                                        {% endfor %}
+                                    </select>
+                                    <label for="charity">Charity</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-floating">
+                                    <input class="form-control border-0 bg-light" name="shares" placeholder="Shares" type="number" min="1">
+                                    <label for="shares">Shares</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <button class="btn btn-primary w-100 py-3" type="submit">Donate</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="position-relative overflow-hidden pt-5 h-100" style="min-height: 400px;">
+                        <img class="position-absolute w-100 h-100 end-0" src="static/img/don-3.jpg" alt="" style="object-fit: cover;">
+                        <img class="position-absolute top-0 end-0 bg-white ps-3 pb-3" src="static/img/don-4.jpg" alt="" style="object-fit: cover;width: 200px; height: 200px">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

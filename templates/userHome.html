@@ -1,0 +1,51 @@
+{% extends "layout.html" %} {% block title %} Portfolio {% endblock %} {% with
+messages = get_flashed_messages() %} {% if messages %}
+<header class="alert alert-primary border text-center" role="alert">
+  {{ message }}
+</header>
+{% endif %} {% endwith %} {% block main %}
+
+<h4 class="text-primary text-uppercase mb-2">Welcome to Your Dashboard</h4>
+<h1 class="display-6 mb-4">Thank You for Creating Positive Change Together!</h1>
+
+<div class="table100 ver1 mb-3">
+  <div class="table100-head">
+    <table>
+      <thead>
+        <tr class="row100 head">
+          <th class="column2">Charity</th>
+          <th class="column4">Email</th>
+          <th class="column4">Shares</th>
+          <th class="column4">Price</th>
+          <th class="column4">Total</th>
+        </tr>
+      </thead>
+    </table>
+  </div>
+  <div class="table100-body js-pscroll ps ps--active-y">
+    <table class="table table-striped">
+      <tbody>
+        {% for charity in charities %}
+        <tr class="row100 body">
+          <td class="column2">{{charity.charity_name}}</td>
+          <td class="column4">{{charity.charity_email}}</td>
+          <td class="column4">{{charity.total_shares}}</td>
+          <td class="column4">{{charity.share_price | round(2) }} EGP</td>
+          <td class="column4">{{charity.total_price | round(2) }} EGP</td>
+        </tr>
+        {% endfor %}
+        <tr class="row100 body">
+          <!-- <td class=" column2"></td>
+      <td class=" column2"></td> -->
+          <td colspan="4">Remain User Cash</td>
+          <td class="column4">{{user_cash.cash | round(2) }} EGP</td>
+        </tr>
+        <tr class="row100 body">
+          <td colspan="4"></td>
+          <td>{{total_cash | round(2) }} EGP</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

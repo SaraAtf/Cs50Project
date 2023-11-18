@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block title %}
+History
+{% endblock %}
+
+{% block main %}
+
+<h4 class="text-primary text-uppercase mb-2">Thank You!</h4>
+<h3 class="display-6 mb-4">For creating positive change together.</h3>
+
+<p class="lead mb-4">Your generous contributions are making a difference. Here are the details of your recent donations:</p>
+
+<div class="table100 ver1 mb-3">
+  <div class="table100-head">
+    <table>
+      <thead>
+        <tr class="row100 head">
+          <th class="column2">Charity</th>
+          <th class="column4">Shares</th>
+          <th class="column4">Price</th>
+          <th class="column4">Transacted</th>
+        </tr>
+      </thead>
+    </table>
+  </div>
+  <div class="table100-body js-pscroll ps ps--active-y">
+    <table class="table table-striped">
+      <tbody>
+        {% for charity in charities %}
+        <tr class="row100 body">
+          <td class="column2">{{charity.charity_name}}</td>
+          <td class="column4">{{charity.shares}}</td>
+          <td class="column4">{{charity.price | round(2) }} EGP</td>
+          <td class="column4">{{charity.timestamp}}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}
